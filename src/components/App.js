@@ -11,12 +11,7 @@ function App() {
       setUserObj(user);
     });
   }, []);
-  return (
-    <>
-      {init ? <AppRouter userObj={userObj} /> : "Initializing..."}
-      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
-    </>
-  );
+  return <>{init ? <AppRouter userObj={userObj} /> : "Initializing..."}</>;
 }
 
 export default App;
