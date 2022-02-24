@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 function Home({ userObj }) {
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
 
   const onSubmit = async (event) => {
     event.preventDefault();
