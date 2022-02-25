@@ -8,7 +8,7 @@ import Navigation from "components/Navigation";
 function AppRouter({ userObj }) {
   return (
     <Router>
-      {userObj && <Navigation />}
+      {userObj && <Navigation userObj={userObj} />}
       <Switch>
         {userObj ? (
           <>
