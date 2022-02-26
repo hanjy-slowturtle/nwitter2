@@ -8,10 +8,34 @@ function App() {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       setInit(true);
-      setUserObj(user);
+      //setUserObj(user);
+      if (user) {
+        setUserObj(filterUserData(user));
+      } else {
+        setUserObj(null);
+      }
     });
   }, []);
-  return <>{init ? <AppRouter userObj={userObj} /> : "Initializing..."}</>;
+  const refreshUser = () => {
+    setUserObj(filterUserData(authService.currentUser));
+  };
+  const filterUserData = (user) => {
+    return {
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    };
+  };
+
+  return (
+    <>
+      {init ? (
+        <AppRouter userObj={userObj} refreshUser={refreshUser} />
+      ) : (
+        "Initializing..."
+      )}
+    </>
+  );
 }
 
 export default App;
