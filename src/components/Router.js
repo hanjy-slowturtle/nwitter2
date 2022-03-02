@@ -32,6 +32,7 @@ function AppRouter({ userObj, refreshUser }) {
           <>
             <Route exact path="/">
               <Auth />
+              <Home />
             </Route>
           </>
         )}
